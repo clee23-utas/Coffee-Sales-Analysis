@@ -1,4 +1,4 @@
-# Coffee Sales Analysis with Power BI and MYSQL
+# Coffee Sales Analysis with Power BI and MySQL
 
 ## Project Overview
 This repository contains a Coffee Sales Analysis dashboard that analyzes sales data for a coffee shop. The goal is to gain insights into daily sales trends, popular products, and peak business hours. The dashboard provides visualizations and interactive features to explore the data effectively.
