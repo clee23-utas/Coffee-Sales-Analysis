@@ -5,6 +5,7 @@ This repository contains a Coffee Sales Analysis dashboard designed to analyze s
 
 ![Coffee Sales Analysis Dashboard](images/Coffee_Sales_Analysis_Dashboard.png)
 
+
 ## Features
 - **Sales Overview**: Provides a quick summary of total sales, orders, quantity sold, and month-on-month differences, with a customizable filter for viewing specific months.
 
@@ -18,19 +19,25 @@ This repository contains a Coffee Sales Analysis dashboard designed to analyze s
 
 - **Product Performance**: Provides a detailed analysis of sales by product category and individual products.
 
+
 ## Insights
 Key insights from the Coffee Sales Analysis Dashboard reveal:
-- **Revenue Growth**: In June, the coffee shop achieved total sales of $166,000 in June, with 35K orders processed, marking a 6% increase from May. This positive growth trend indicates growing customer demand and operational efficiency.
-- **Sales Patterns**: The3rd and 4th weeks of June consistently experienced sales above the average, reflecting sustained customer interest and higher transaction volumes during this period.
-- **Peak Business Hours**: The heatmap shows pronounced peak business hours between 7AM to 10AM, indicating high customer activity during morning rush hours.
-- **Optimal Sales Days**: Thursday and Fridays consistenly exhibit higher sales compared to other days, suggesting prime opportunities for product launches or promotional activities to maximize sales potential. 
-- **Store Performance**: Hell's Kitchen emerged as the top performer with $57,000 in sales, closely followed by Astoria ($55,000) and Lower Manhattan ($54,000), suggesting balanced performance across different locations.
-- **Best-Selling Categories and Products**: Coffee dominates in sales volume, followed by Tea and Bakery products. The standout best-selling products include the "Barista Espresso" generating $22,000, followed closedly by "Brewed Chai Tea" with $18,000 and "Gourmet Brewed Coffee" at $17,000, underscoring consumer preferences and revenue-driving products within the shop's offerings.
+- **Revenue Growth**: In June, the coffee shop achieved total sales of $166,000 in June, with 35,000 orders processed, marking a 6% increase from May. This positive growth trend indicates growing customer demand and operational efficiency.
 
-By following these steps, you can effectively incorporate SQL queries into your Sales Analysis Dashboard README on GitHub. This approach enhances the documentation's completeness and provides users with transparency and insights into the data processing and analysis methods used in your project.
+- **Sales Patterns**: The 3rd and 4th weeks of June consistently experienced sales above the average, reflecting sustained customer interest and higher transaction volumes during this period.
+
+- **Peak Business Hours**: The heatmap shows pronounced peak business hours between 7AM to 10AM, indicating high customer activity during morning rush hours.
+
+- **Optimal Sales Days**: Thursday and Fridays consistently exhibit higher sales compared to other days, suggesting prime opportunities for product launches or promotional activities to maximize sales potential.
+
+- **Store Performance**: Hell's Kitchen emerged as the top performer with $57,000 in sales, closely followed by Astoria ($55,000) and Lower Manhattan ($54,000), suggesting balanced performance across different locations.
+  
+- **Best-Selling Categories and Products**: Coffee dominates in sales volume, followed by Tea and Bakery products. The standout best-selling products include the "Barista Espresso" generating $22,000, followed closely by "Brewed Chai Tea" with $18,000 and "Gourmet Brewed Coffee" at $17,000, underscoring consumer preferences and revenue-driving products within the shop's offerings.
+
 
 ## SQL Queries
 To ensure the accuracy and reliability of the insights presented in the dashboard, the following MySQL queries were developed. These queries are designed to extract and manipulate data, enabling deeper analysis and addressing key business challenges identified within the dashboard:
+
 1. **Total Sales and Orders for Each Month**:
     ```sql
     With Sales AS (
@@ -49,6 +56,8 @@ To ensure the accuracy and reliability of the insights presented in the dashboar
         CONCAT(ROUND((total_sales - LAG(total_sales, 1) OVER (ORDER BY month)) / LAG(total_sales, 1) OVER (ORDER BY month) * 100), '%') AS sales_diff_pct
     FROM Sales;
     ```
+    Output:
+   
 2. **Sales Trends by Days**:
     ```sql
     SELECT
