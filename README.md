@@ -1,10 +1,8 @@
-# Coffee Sales Analysis with Power BI and MySQL
-
-## Project Overview
-This repository contains a Coffee Sales Analysis dashboard designed to analyze sales data for a coffee shop. The goal is to gain insights into daily sales trends, popular products, and peak business hours. The dashboard provides visualizations and interactive features to explore the data effectively.
-
+# Coffee Sales Analysis Dashboard
 ![Coffee Sales Analysis Dashboard](images/Coffee_Sales_Analysis_Dashboard.png)
 
+## Project Overview
+Welcome to the Coffee Shop Sales Analysis Dashboard! This Power BI dashboard provides an in-depth analysis of sales data for a coffee shop. The dashboard helps us understand the daily sales trends, popular products, and peak business hours, enabling us to make data-driven decisions to enhance our business strategy.
 
 ## Features
 - **Sales Overview**: Provides a quick summary of total sales, orders, quantity sold, and month-on-month differences, with a customizable filter for viewing specific months.
@@ -58,25 +56,30 @@ To ensure the accuracy and reliability of the insights presented in the dashboar
     ```
     Output:
    
+   <img src="images/sql_1_total_sales_n_orders.png" alt="SQL Output for Total Sales and Orders" width="250"/>
+
 2. **Sales Trends by Days**:
     ```sql
     SELECT
-    	CASE
-            WHEN DAYOFWEEK(transaction_date) = 2 THEN 'Monday'
-            WHEN DAYOFWEEK(transaction_date) = 3 THEN 'Tuesday'
-            WHEN DAYOFWEEK(transaction_date) = 4 THEN 'Wednesday'
-            WHEN DAYOFWEEK(transaction_date) = 5 THEN 'Thursday'
-            WHEN DAYOFWEEK(transaction_date) = 6 THEN 'Friday'
-            WHEN DAYOFWEEK(transaction_date) = 7 THEN 'Saturday'
-            ELSE 'Sunday'
-        END AS day_of_weeks,
-        CONCAT(ROUND(SUM(transaction_qty * unit_price)/1000), 'K') AS total_sales
+       CASE
+          WHEN DAYOFWEEK(transaction_date) = 2 THEN 'Monday'
+          WHEN DAYOFWEEK(transaction_date) = 3 THEN 'Tuesday'
+          WHEN DAYOFWEEK(transaction_date) = 4 THEN 'Wednesday'
+          WHEN DAYOFWEEK(transaction_date) = 5 THEN 'Thursday'
+          WHEN DAYOFWEEK(transaction_date) = 6 THEN 'Friday'
+          WHEN DAYOFWEEK(transaction_date) = 7 THEN 'Saturday'
+          ELSE 'Sunday'
+       END AS day_of_weeks,
+       CONCAT(ROUND(SUM(transaction_qty * unit_price)/1000), 'K') AS total_sales
     FROM coffee_sales
     WHERE DATE_FORMAT(transaction_date, '%Y-%m') = '2023-06'
     GROUP BY day_of_weeks
-    ORDER BY SUM(transaction_qty * unit_price) DESC;
+    ORDER BY SUM(transaction_qty * unit_price) DESC;	
     ```
-    
+    Output:
+
+   <img src="images/sql_2_total_sales_by_days.png" alt="SQL Output for Total Sales by Days" width="150"/>
+
 3. **Sales Trends by Hours**:
    ```sql
     SELECT
@@ -87,6 +90,9 @@ To ensure the accuracy and reliability of the insights presented in the dashboar
     GROUP BY hour_of_day
     ORDER BY hour_of_day;
     ```
+   Output:
+
+   <img src="images/sql_3_total_sales_by_hours.png" alt="SQL Output for Total Sales by Hoyrss" width="150"/>
    
  4. **Store Performance**:
     ```sql 
@@ -98,9 +104,12 @@ To ensure the accuracy and reliability of the insights presented in the dashboar
     GROUP BY store_location
     ORDER BY total_sales DESC;
     ```
+    Output:
+
+    <img src="images/sql_4_total_sales_by_stores.png" alt="SQL Output for Total Sales by Stores" width="200"/>
 
 5. **Best-Selling Products Category**:
-    ```sql
+    ```sql4
     SELECT
 	    product_category,
         CONCAT(ROUND(SUM(transaction_qty * unit_price)/1000),'K') AS total_sales
@@ -109,6 +118,9 @@ To ensure the accuracy and reliability of the insights presented in the dashboar
     GROUP BY product_category
     ORDER BY SUM(transaction_qty * unit_price) DESC;
     ```
+    Output:
+
+    <img src="images/sql_5_total_sales_by_categories.png" alt="SQL Output for Total Sales by Categories" width="200"/>
     
 6. **Best-Selling Products Type**:
     ```sql
@@ -121,7 +133,9 @@ To ensure the accuracy and reliability of the insights presented in the dashboar
     ORDER BY SUM(transaction_qty * unit_price) DESC
     LIMIT 10;
     ```
+    Output:
 
+    <img src="images/sql_6_total_sales_by_products.png" alt="SQL Output for Total Sales by Products" width="200"/>
 
 ## Skills Demonstrated
 
@@ -134,7 +148,12 @@ This project demonstrates the following skills:
 - **Data Cleaning**: Preprocessing data to ensure accuracy and consistency.
 - **Business Intelligence**: Leveraging BI tools to inform business decisions and strategy.
 
-## References
+## Data Source
 
-This project was developed following the tutorial [Title of the Tutorial] by [Author/Instructor Name]. The tutorial can be found [here](link-to-tutorial).
+The data used for this analysis consists of 150,000 transaction records spanning from January 1, 2023, to June 30, 2023. Each transaction includes details such as store location, product category, product type, quantity, and unit price. The sales data can be found [here].
+
+<!-- ## References
+Tutorial Link (PowerBI): https://www.youtube.com/watch?v=zMrmSctNCbE
+Tutorial LInk (MySQL)  : https://www.youtube.com/watch?v=hgz0msTZtX8
+-->
 
