@@ -1,5 +1,5 @@
 # Coffee Sales Analysis Dashboard
-![Coffee Sales Analysis Dashboard](images/Coffee_Sales_Analysis_Dashboard.png)
+<img src="images/Coffee_Sales_Analysis_Dashboard.png" alt="Coffee Sales Analysis Dashboard" width="600"/>
 
 ## Project Overview
 Welcome to the Coffee Shop Sales Analysis Dashboard! This Power BI dashboard provides an in-depth analysis of sales data for a coffee shop. The dashboard helps us understand the daily sales trends, popular products, and peak business hours, enabling us to make data-driven decisions to enhance our business strategy.
@@ -109,7 +109,7 @@ To ensure the accuracy and reliability of the insights presented in the dashboar
     <img src="images/sql_4_total_sales_by_stores.png" alt="SQL Output for Total Sales by Stores" width="200"/>
 
 5. **Best-Selling Products Category**:
-    ```sql4
+    ```sql
     SELECT
 	    product_category,
         CONCAT(ROUND(SUM(transaction_qty * unit_price)/1000),'K') AS total_sales
@@ -150,7 +150,7 @@ This project demonstrates the following skills:
 
 ## Data Source
 
-The data used for this analysis consists of 150,000 transaction records spanning from January 1, 2023, to June 30, 2023. Each transaction includes details such as store location, product category, product type, quantity, and unit price. The sales data can be found [here].
+The data used for this analysis consists of 150,000 transaction records spanning from January 1, 2023, to June 30, 2023. Each transaction includes details such as store location, product category, product type, quantity, and unit price. The sales data can be found [here](https://github.com/clee23-utas/Coffee-Sales-Analysis/blob/d3fc7472310205cf8c20df289af2553f3a72801b/Coffee%20Shop%20Sales.xlsx).
 
 <!-- ## References
 Tutorial Link (PowerBI): https://www.youtube.com/watch?v=zMrmSctNCbE
