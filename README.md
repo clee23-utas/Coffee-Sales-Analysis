@@ -3,6 +3,8 @@
 ## Project Overview
 This repository contains a Coffee Sales Analysis dashboard designed to analyze sales data for a coffee shop. The goal is to gain insights into daily sales trends, popular products, and peak business hours. The dashboard provides visualizations and interactive features to explore the data effectively.
 
+![Coffee Sales Analysis Dashboard](images/Coffee_Sales_Analysis_Dashboard.png)
+
 ## Features
 - **Sales Overview**: Provides a quick summary of total sales, orders, quantity sold, and month-on-month differences, with a customizable filter for viewing specific months.
 
